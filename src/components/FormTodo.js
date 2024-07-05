@@ -37,19 +37,25 @@ const FormTodo = (props) => {
 
   return (
     <form className="form-container">
-      <div className="input-container">
-        <input
-          value={inputTodo}
-          onChange={inputTextHandler}
-          type="text"
-          className="todo-input"
-          placeholder="enter what's next to do..."
-        />
-        {error && <p className="error-message">{error}</p>}
+      <div className="form-input">
+        <div className="input-container">
+          <input
+            value={inputTodo}
+            onChange={inputTextHandler}
+            type="text"
+            className="todo-input"
+            placeholder="enter what's next to do..."
+          />
+          {error && <p className="error-message">{error}</p>}
+        </div>
+        <button
+          onClick={submitTodoHandler}
+          className="todo-button"
+          type="submit"
+        >
+          <i className="fa-solid fa-square-plus"></i>
+        </button>
       </div>
-      <button onClick={submitTodoHandler} className="todo-button" type="submit">
-        <i className="fa-solid fa-square-plus"></i>
-      </button>
       <div className="select">
         <select className="filter-todo" onChange={filterHandler} value={filter}>
           <option value="all">All</option>
